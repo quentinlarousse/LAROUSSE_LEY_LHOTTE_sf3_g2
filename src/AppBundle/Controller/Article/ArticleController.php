@@ -14,6 +14,7 @@ class ArticleController extends Controller
      */
     public function listAction()
     {
+
      return new Response('List of article');
     }
 
@@ -25,6 +26,20 @@ class ArticleController extends Controller
         $tag = $request->query->get('tag');
 
         return new Response('Affiche moi l\'article avec l\'id: '.$id. 'avec le tag' .$tag);
+    }
+
+    /**
+     * @Route("/show/{articleName}")
+     *
+     * @param $articleName
+     *
+     * @return Response
+     */
+    public function showArticleNameAction($articleName)
+    {
+        return $this->render('AppBundle:Article:index.html.twig',[
+            'articleName' => $articleName,
+        ]);
     }
 
 
