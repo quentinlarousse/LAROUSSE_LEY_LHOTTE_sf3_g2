@@ -22,9 +22,9 @@ class ArticleController extends Controller
      */
     public function showAction($id, Request $request)
     {
-        dump($request);
+        $tag = $request->query->get('tag');
 
-        return new Response('Affiche moi l\'article avec l\'id: '.$id);
+        return new Response('Affiche moi l\'article avec l\'id: '.$id. 'avec le tag' .$tag);
     }
 
 
