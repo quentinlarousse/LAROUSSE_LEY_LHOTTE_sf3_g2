@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @property  render
+ */
 class ArticleController extends Controller
 {
     /**
@@ -14,8 +17,24 @@ class ArticleController extends Controller
      */
     public function listAction()
     {
+        $tutorials = [
+            [
+                'id' => 2,
+                'name' => 'Symfony2'
+            ],
+            [
+                'id' => 5,
+                'name' => 'Wordpress'
+            ],
+            [
+                'id' => 9,
+                'name' => 'Laravel'
+            ],
+        ];
 
-     return new Response('List of article');
+        return $this->render('AppBundle:Article:index.html.twig',[
+            'tutorials' => $tutorials,
+        ]);
     }
 
     /**
